@@ -1,14 +1,5 @@
 {
-    const tasks = [
-        {
-            content: "zjeść śniadanie",
-            done: true,
-        },
-        {
-            content: "pojechać na wakacje",
-            done: false,
-        },
-    ];
+    const tasks = [];
 
     const addNewTask = (newTaskContent) => {
         tasks.push({
@@ -16,21 +7,21 @@
         });
         newTaskContent.value = "";
         render();
-    };
+    }
 
     const removeTask = (taskIndex) => {
         tasks.splice(taskIndex, 1);
         render();
-    };
+    }
 
     const toggleTaskDone = (taskIndex) => {
         tasks[taskIndex].done = !tasks[taskIndex].done;
         render();
-    };
+    }
 
     const addFocus = () => {
         newTaskContent = document.querySelector(".js-newTask").focus();
-    };
+    }
 
     const addEvents = () => {
         const removeTaskButtons = document.querySelectorAll(".js-removeTaskButton");
@@ -49,7 +40,7 @@
 
         const buttonElement = document.querySelector(".js-button");
         buttonElement.addEventListener("click", addFocus);
-    };
+    }
 
     const render = () => {
         let htmlString = "";
@@ -66,7 +57,7 @@
         document.querySelector(".js-tasksList").innerHTML = htmlString;
 
         addEvents();
-    };
+    }
 
     const init = () => {
         render();
@@ -80,7 +71,7 @@
             }
             addNewTask(newTaskContent);
         });
-    };
+    }
 
     addFocus();
     init();
