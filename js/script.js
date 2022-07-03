@@ -12,8 +12,9 @@
 
     const addNewTask = (newTaskContent) => {
         tasks.push({
-            content: newTaskContent,
+            content: newTaskContent.value,
         });
+        newTaskContent.value = "";
         render();
     };
 
@@ -25,6 +26,10 @@
     const toggleTaskDone = (taskIndex) => {
         tasks[taskIndex].done = !tasks[taskIndex].done;
         render();
+    };
+
+    const addFocus = () => {
+        newTaskContent = document.querySelector(".js-newTask").focus();
     };
 
     const addEvents = () => {
@@ -41,6 +46,9 @@
                 toggleTaskDone(taskIndex);
             });
         });
+
+        const buttonElement = document.querySelector(".js-button");
+        buttonElement.addEventListener("click", addFocus);
     };
 
     const render = () => {
@@ -66,13 +74,15 @@
         const formElement = document.querySelector(".js-form");
         formElement.addEventListener("submit", (event) => {
             event.preventDefault();
-            const newTaskContent = document.querySelector(".js-newTask").value.trim();
-            if (newTaskContent === "") {
+            const newTaskContent = document.querySelector(".js-newTask");
+            if (newTaskContent.value.trim() === "") {
                 return;
             }
             addNewTask(newTaskContent);
         });
     };
 
+    addFocus();
     init();
+
 }
