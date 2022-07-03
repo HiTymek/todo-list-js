@@ -3,3 +3,7 @@
     flex-direction: column;
     padding: 25px;
 }
+
+.tasksList__item--done {
+    text-decoration: line-through;
+}
