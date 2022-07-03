@@ -1,7 +1,29 @@
-.list {
+.tasksList {
     display: flex;
     flex-direction: column;
     padding: 25px;
+    list-style: none;
+}
+
+.tasksList__item {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 70px 1fr 70px;
+    padding: 20px 0 20px 0;
+    border-bottom: 2px solid hsl(0, 0%, 85%);
+}
+
+.tasksList__button {
+    font-size: 17px;
+    color: white;
+    background-color: green;
+    width: 40px;
+    height: 40px;
+    justify-self: center;
+}
+
+.tasksList__button--red {
+    background-color: red;
 }
 
 .tasksList__item--done {
