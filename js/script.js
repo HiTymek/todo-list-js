@@ -27,20 +27,7 @@
         render();
     };
 
-    const render = () => {
-        let htmlString = "";
-
-        for (const task of tasks) {
-            htmlString += `
-            <li class="tasksList__item ${task.done ? "tasksList__item--done" : ""}">
-            <button class="js-removeTaskButton">Usuń</button>
-            ${task.content}
-            <button class="js-toggleTaskDoneButton">Zrobione</button>
-            </li>
-            `;
-        };
-        document.querySelector(".js-tasksList").innerHTML = htmlString;
-
+    const addEvents = () => {
         const removeTaskButtons = document.querySelectorAll(".js-removeTaskButton");
         removeTaskButtons.forEach((removeTaskButton, taskIndex) => {
             removeTaskButton.addEventListener("click", () => {
@@ -56,6 +43,23 @@
         });
     };
 
+    const render = () => {
+        let htmlString = "";
+
+        for (const task of tasks) {
+            htmlString += `
+            <li class="tasksList__item ${task.done ? "tasksList__item--done" : ""}">
+            <button class="js-removeTaskButton">Usuń</button>
+            ${task.content}
+            <button class="js-toggleTaskDoneButton">Zrobione</button>
+            </li>
+            `;
+        };
+        document.querySelector(".js-tasksList").innerHTML = htmlString;
+
+        addEvents();
+    };
+
     const init = () => {
         render();
 
@@ -68,7 +72,6 @@
             }
             addNewTask(newTaskContent);
         });
-
     };
 
     init();
