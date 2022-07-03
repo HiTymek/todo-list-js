@@ -17,17 +17,31 @@
         render();
     };
 
+    const removeTask = (taskIndex) => {
+        tasks.splice(taskIndex, 1);
+        render();
+    }
+
     const render = () => {
         let htmlString = "";
 
         for (const task of tasks) {
             htmlString += `
-            <li>
+            <li class="tasksList__item ${task.done ? "tasksList__item--done" : ""}">
+            <button class="js-removeTaskButton">Usuń</button>
             ${task.content}
             </li>
             `;
         }
         document.querySelector(".js-tasksList").innerHTML = htmlString;
+
+        const removeTaskButtons = document.querySelectorAll(".js-removeTaskButton");
+        removeTaskButtons.forEach((removeTaskButton, taskIndex) => {
+            removeTaskButton.addEventListener("click", () => {
+                removeTask(taskIndex);
+            });
+        });
+
     };
 
     const init = () => {
