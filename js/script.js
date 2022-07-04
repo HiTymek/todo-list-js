@@ -73,7 +73,6 @@
         });
     }
 
-    addFocus();
     init();
 
 }
