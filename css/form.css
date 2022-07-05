@@ -29,3 +29,8 @@
     color: white;
     border: none;
 }
+
+.form__button:hover {
+    background-color: hsl(180, 100%, 15%);
+    cursor: pointer;
+}
