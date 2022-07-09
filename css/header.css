@@ -1,8 +1,7 @@
 .header {
-    max-width: 1200px;
     margin: 40px auto 20px auto;
 }
 
-.header__header {
+.header__title {
     margin-left: 20px;
 }

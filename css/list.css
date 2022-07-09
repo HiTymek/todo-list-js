@@ -9,7 +9,7 @@
 .tasksList__item {
     display: grid;
     align-items: center;
-    grid-template-columns: 70px 1fr 70px;
+    grid-template-columns: auto 1fr auto;
     padding: 20px 0 20px 0;
     border-bottom: 2px solid hsl(0, 0%, 85%);
 }
@@ -23,6 +23,7 @@
     justify-self: center;
     border: none;
     cursor: pointer;
+    margin-right: 15px;
 }
 
 .tasksList__button:hover {
@@ -31,6 +32,8 @@
 
 .tasksList__button--red {
     background-color: red;
+    margin-left: 15px;
+    margin-right: 0;
 }
 
 .tasksList__button--red:hover {
