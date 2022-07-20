@@ -33,3 +33,8 @@
     color: hsl(180, 100%, 35%);
     cursor: pointer;
 }
+
+.section__headerButton:disabled {
+    color: #999;
+    cursor: auto;
+}

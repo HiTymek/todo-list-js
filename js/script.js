@@ -25,13 +25,16 @@
             ...tasks.slice(0, taskIndex),
             { ...tasks[taskIndex], done: !tasks[taskIndex].done },
             ...tasks.slice(taskIndex + 1),
-        ];
+        ]
         render();
     }
 
-    const toggleAllTasksDone = (taskIndex) => {
-        tasks = [
-        ];
+    const markAllTasksAsDone = () => {
+        tasks = tasks.map(task => ({
+            ...task,
+            done: true,
+        }));
+        render();
     }
 
     const addFocus = () => {
@@ -58,7 +61,18 @@
         });
     }
 
-    const addButtonsEvents = () => { }
+    const addHeaderButtonsEvents = () => {
+        const hideAllTasksDoneButton = document.querySelector(".js-hideAllTasksDoneButton");
+        hideAllTasksDoneButton
+            ? hideAllTasksDoneButton.addEventListener("click", () => {
+                console.log("dzi");
+            })
+            : "";
+        const markAllTasksAsDoneButton = document.querySelector(".js-markAllTasksAsDoneButton");
+        markAllTasksAsDoneButton
+            ? markAllTasksAsDoneButton.addEventListener("click", markAllTasksAsDone)
+            : "";
+    }
 
     const renderTasks = () => {
         let htmlString = "";
@@ -82,7 +96,20 @@
     }
 
     const renderButtons = () => {
+        let htmlHeaderButtons = "";
 
+        tasks.length !== 0
+            ? htmlHeaderButtons += `
+        <button class="section__headerButton js-hideAllTasksDoneButton">
+        Ukryj ukończone
+        </button>
+        <button class="section__headerButton js-markAllTasksAsDoneButton" ${tasks.every(({ done }) => done) ? "disabled" : ""}>
+        Ukończ wszystkie
+        </button>
+        `
+            : "";
+
+        document.querySelector(".js-headerButtons").innerHTML = htmlHeaderButtons;
     }
 
     const render = () => {
@@ -91,7 +118,7 @@
 
         addRemoveEvents();
         addToggleDoneEvents();
-        addButtonsEvents();
+        addHeaderButtonsEvents();
     }
 
     const onFormSubmit = () => {
