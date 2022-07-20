@@ -14,6 +14,10 @@
     border-bottom: 2px solid hsl(0, 0%, 85%);
 }
 
+.tasksList__item--hide {
+    display: none;
+}
+
 .tasksList__button {
     font-size: 17px;
     color: white;
