@@ -69,9 +69,7 @@
     const addHeaderButtonsEvents = () => {
         const hideAllTasksDoneButton = document.querySelector(".js-hideAllTasksDoneButton");
         hideAllTasksDoneButton
-            ? hideAllTasksDoneButton.addEventListener("click", () => {
-                toggleHideDoneTasks();
-            })
+            ? hideAllTasksDoneButton.addEventListener("click", toggleHideDoneTasks)
             : "";
         const markAllTasksAsDoneButton = document.querySelector(".js-markAllTasksAsDoneButton");
         markAllTasksAsDoneButton
@@ -140,7 +138,6 @@
 
     const init = () => {
         render();
-
         onFormSubmit();
     }
 

@@ -29,8 +29,25 @@
     padding: 20px;
 }
 
+@media (max-width:767px) {
+
+    .section__headerContainer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .section__header {
+        align-self: flex-start;
+    }
+
+    .section__headerButtons {
+        flex-direction: column;
+    }
+}
+
 .section__headerButton:hover {
     color: hsl(180, 100%, 35%);
+    transition-duration: 0.5s;
     cursor: pointer;
 }
 

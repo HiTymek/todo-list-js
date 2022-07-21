@@ -32,5 +32,7 @@
 
 .form__button:hover {
     background-color: hsl(180, 100%, 15%);
+    transform: scale(1.05);
+    transition-duration: 0.5s;
     cursor: pointer;
 }
