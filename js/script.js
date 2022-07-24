@@ -13,7 +13,7 @@
             { content: newTaskContent.value },
         ];
         newTaskContent.value = "";
-        addFocus();
+        setInputFocus();
         render();
     }
 
@@ -42,9 +42,7 @@
         render();
     }
 
-    const addFocus = () => {
-        const buttonElement = document.querySelector(".js-button");
-        buttonElement.addEventListener("click", addFocus);
+    const setInputFocus = () => {
         newTaskContent = document.querySelector(".js-newTask").focus();
     }
 
